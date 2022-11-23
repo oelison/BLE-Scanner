@@ -23,8 +23,8 @@
 
 */
 
-#ifndef __WIFI_H__
-#define __WIFI_H__  1
+#ifndef __WIFIMODULE_H__
+#define __WIFIMODULE_H__  1
 
 #include <WiFi.h>
 #include <WiFiUdp.h>

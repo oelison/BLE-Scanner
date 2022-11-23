@@ -37,6 +37,19 @@ static time_t _last_activescan = 0;
 
 class BLEScannerAdvertisedDeviceCallbacks : public NimBLEAdvertisedDeviceCallbacks
 {
+    String HexString2ASCIIString(String hexstring) {
+      String temp = "", sub = "", result;
+      char buf[3];
+      for(int i = 0; i < hexstring.length(); i += 2){
+        sub = hexstring.substring(i, i+2);
+        sub.toCharArray(buf, 3);
+        char b = (char)strtol(buf, 0, 16);
+        if(b == '\0')
+          break;
+        temp += b;
+      }
+      return temp;
+    }
     void onResult(BLEAdvertisedDevice* advertisedDevice)
     {
 #if DBG_BT
@@ -44,7 +57,6 @@ class BLEScannerAdvertisedDeviceCallbacks : public NimBLEAdvertisedDeviceCallbac
       if (advertisedDevice->getAppearance())
         DbgMsg("BLE: found advertised device: %s  appearance: 0x%02x", advertisedDevice->getAddress().toString().c_str(), advertisedDevice->getAppearance());
 #endif
-
       /*
          we only put devices onto the list, which don't use random addresses
       */

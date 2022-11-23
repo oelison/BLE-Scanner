@@ -24,7 +24,7 @@
 */
 
 #include "config.h"
-#include "wifi.h"
+#include "wifimodule.h"
 #include "state.h"
 #include "util.h"
 

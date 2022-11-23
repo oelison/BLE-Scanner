@@ -25,7 +25,7 @@
 
 #include "config.h"
 #include "led.h"
-#include "wifi.h"
+#include "wifimodule.h"
 #include "ntp.h"
 #include "http.h"
 #include "mqtt.h"
